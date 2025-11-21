@@ -1,0 +1,19 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Environnement virtuel ---
+venv/
+.env/
+
+# --- macOS ---
+.DS_Store
+
+# --- VS Code ---
+.vscode/
+*.code-workspace
+
+# --- Logs ---
+*.log

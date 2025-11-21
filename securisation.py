@@ -14,16 +14,16 @@ def valider_mot_de_passe(mot_de_passe: str):
     if len(mot_de_passe) < 8:
         erreurs.append("Le mot de passe doit contenir au moins 8 caractères.")
     # Règle 2 : au moins une majuscule
-    elif not any(c.isupper() for c in mot_de_passe):
+    if not any(c.isupper() for c in mot_de_passe):
         erreurs.append("Le mot de passe doit contenir au moins une lettre majuscule.")
     # Règle 3 : au moins une minuscule
-    elif not any(c.islower() for c in mot_de_passe):
+    if not any(c.islower() for c in mot_de_passe):
         erreurs.append("Le mot de passe doit contenir au moins une lettre minuscule.")
     # Règle 4 : au moins un chiffre
-    elif not any(c.isdigit() for c in mot_de_passe):
+    if not any(c.isdigit() for c in mot_de_passe):
         erreurs.append("Le mot de passe doit contenir au moins un chiffre.")
     # Règle 5 : au moins un caractère spécial
-    elif not any(c in CARACTERES_SPECIAUX for c in mot_de_passe):
+    if not any(c in CARACTERES_SPECIAUX for c in mot_de_passe):
         erreurs.append(f"Le mot de passe doit contenir au moins un caractère spécial : {CARACTERES_SPECIAUX}")
 
     # True si aucune erreur, False sinon
