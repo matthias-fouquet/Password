@@ -34,10 +34,21 @@ def menu_principal():
         choix = input("Votre choix : ").strip()
 
         if choix == "1":
+            # 1) Demander le nom du service
+            service = input("\nNom du service (ex: Fnac, Gmail, Netflix...) : ").strip()
+            if not service:
+                print("Le nom du service ne peut pas être vide.")
+                continue
+
+            # 2) Demander et valider le mot de passe
             mdp = demander_mot_de_passe()
+
+            # 3) Hash du mot de passe
             hash_mdp = hacher_mot_de_passe(mdp)
-            ajouter_mot_de_passe_hache(hash_mdp)
-            print("\nMot de passe enregistré (hashé) avec succès.")
+
+            # 4) Tentative d'enregistrement
+            ok, message = ajouter_mot_de_passe_hache(service, hash_mdp)
+            print("\n" + message)
 
         elif choix == "2":
             afficher_mots_de_passe()
@@ -60,7 +71,7 @@ def menu_principal():
                 print("\nDeuxième confirmation incorrecte, opération annulée.")
 
         elif choix == "4":
-            print("\nArret du gestionnaire de mot de passe. Au revoir.")
+            print("\nAu revoir.")
             break
 
         else:
